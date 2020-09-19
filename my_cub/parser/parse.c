@@ -6,12 +6,13 @@
 /*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 17:48:18 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/18 19:03:32 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/19 04:52:27 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../minilibx/mlx.h"
+#include <fcntl.h>
 
 char	**make_map(t_list **head, int size)
 {
