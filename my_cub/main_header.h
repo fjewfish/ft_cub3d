@@ -6,7 +6,7 @@
 /*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 05:09:41 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/21 05:56:25 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/21 10:25:31 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,11 @@ t_all		*ft_init_all_in_one(void);
 int		ft_exit(t_all *s, int win);
 
 //PARSE_C
-char	**make_map(t_list **head, int size);
+char	**make_map(t_list **head, int size, t_all *aio);
 int		ft_parse(t_all *aio, char *cub);
+
+//USEFULL_FUN_C
+int		ft_spaceskip(char *line, int *i);
+int		ft_strerror(int err);
 
 #endif

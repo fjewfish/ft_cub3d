@@ -6,13 +6,13 @@
 /*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 17:48:18 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/21 06:00:20 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/21 10:26:35 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main_header.h"
-
-char	**make_map(t_list **head, int size)
+??????????????????????????????
+void	**make_map(t_list **head, int size, t_all *aio)
 {
 	char **map;
 	int i;
@@ -36,14 +36,12 @@ int		ft_parse(t_all *aio, char *cub)
 	t_list *head;
 
 	fd = open(cub, O_RDONLY);
-	line = NULL;
-	head = NULL;
+	if (fd == -1)
+		return (ft_strerror(999));
 	while (get_next_line(fd, &line))
-	{
 		ft_lstadd_back(&head, ft_lstnew(line));
-	}
 	ft_lstadd_back(&head, ft_lstnew(line));
-	aio->map.walls = make_map(&head, ft_lstsize(head));
+	make_map(&head, ft_lstsize(head), aio);
 
 	//PRINT GNL
 	int i = 0;
@@ -52,21 +50,6 @@ int		ft_parse(t_all *aio, char *cub)
 		ft_putendl_fd(aio->map.walls[i], 1);
 		i++;
 	}
-
-	//MLX
-	void	*mlx = NULL;
-	void	*win = NULL;
-	int		x = 100;
-	int		y = 100;
-
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 1280, 720, "test");
-	while (y++ < 200)
-	{
-		x = 100;
-		while (x++ < 200)
-			mlx_pixel_put(mlx, win, x, y, 0xFFFFFF);
-	}
-	mlx_loop(mlx);
+	//DEL ALL UP
 	return(1);
 }
