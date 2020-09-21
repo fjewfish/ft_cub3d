@@ -6,13 +6,11 @@
 /*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 17:48:18 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/19 04:52:27 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/21 06:00:20 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../minilibx/mlx.h"
-#include <fcntl.h>
+#include "main_header.h"
 
 char	**make_map(t_list **head, int size)
 {
@@ -31,14 +29,13 @@ char	**make_map(t_list **head, int size)
 	return (map);
 }
 
-int		main(int argc, char **argv)
+int		ft_parse(t_all *aio, char *cub)
 {
 	int fd;
 	char *line;
 	t_list *head;
-	char **map;
 
-	fd = open(argv[1], O_RDONLY);
+	fd = open(cub, O_RDONLY);
 	line = NULL;
 	head = NULL;
 	while (get_next_line(fd, &line))
@@ -46,13 +43,13 @@ int		main(int argc, char **argv)
 		ft_lstadd_back(&head, ft_lstnew(line));
 	}
 	ft_lstadd_back(&head, ft_lstnew(line));
-	map = make_map(&head, ft_lstsize(head));
+	aio->map.walls = make_map(&head, ft_lstsize(head));
 
 	//PRINT GNL
 	int i = 0;
-	while (map[i])
+	while (aio->map.walls[i])
 	{
-		ft_putendl_fd(map[i], 1);
+		ft_putendl_fd(aio->map.walls[i], 1);
 		i++;
 	}
 
@@ -71,5 +68,5 @@ int		main(int argc, char **argv)
 			mlx_pixel_put(mlx, win, x, y, 0xFFFFFF);
 	}
 	mlx_loop(mlx);
-	return (0);
+	return(1);
 }
