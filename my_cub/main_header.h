@@ -6,7 +6,7 @@
 /*   By: fjewfish <fjewfish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 05:09:41 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/21 12:04:28 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/21 12:29:24 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,7 @@ void		memory_manager(void *ptr, t_bool action);
 
 //CHECKER_C
 int		check_file_extension(char *arg, char *ext);
+int		ft_check_map(t_list *tmp);
 
 //INITIALIZATION_C
 t_all		*ft_init_all_in_one(void);

@@ -6,11 +6,27 @@
 /*   By: fjewfish <fjewfish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 17:48:18 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/21 12:05:43 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/21 13:15:51 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main_header.h"
+
+void	ft_write_texture(t_all *aio, t_list **tmp)
+{
+	int		i;
+	char *str;
+	i = 0;
+	str = (char *)(*tmp)->content);
+	while (*tmp && (ft_check_map_start(str == 1));
+	{
+		while(str[i++])
+		{
+			if ()??????????/
+		}
+		(*tmp) = (*tmp)->next;
+	}
+}
 
 void	make_map(t_list **head, int size, t_all *aio)
 {
@@ -20,11 +36,22 @@ void	make_map(t_list **head, int size, t_all *aio)
 	aio->map.walls = calloc_gc((size + 1), sizeof(char *));
 	i = -1;
 	tmp = *head;
-	while (tmp)
+	if (ft_check_map(tmp) == 1)
 	{
-		aio->map.walls[++i] = tmp->content;
-		tmp = tmp->next;
+		ft_write_texture(aio, &tmp);
+		while (tmp)
+		{
+			aio->map.walls[++i] = tmp->content;
+			tmp = tmp->next;
+		}
 	}
+	else
+		ft_strerror(999);
+}
+
+static void		pointer_free(void *ptr)
+{
+	free(ptr);
 }
 
 int		ft_parse(t_all *aio, char *cub)
@@ -51,5 +78,6 @@ int		ft_parse(t_all *aio, char *cub)
 		i++;
 	}
 	//DEL ALL UP
+	ft_lstclear(&head, &pointer_free);
 	return(1);
 }
