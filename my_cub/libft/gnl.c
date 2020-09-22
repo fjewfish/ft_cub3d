@@ -6,29 +6,11 @@
 /*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/21 22:53:45 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/21 22:56:53 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/22 21:39:54 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void			*ft_calloc(size_t count, size_t size)
-{
-	char			*dst;
-	unsigned int	total;
-	unsigned int	i;
-
-	total = count * size;
-	if (!(dst = malloc(total)))
-		return (NULL);
-	i = 0;
-	while (total--)
-	{
-		dst[i] = 0;
-		i++;
-	}
-	return ((void *)dst);
-}
 
 char			*ft_join_bufpart(char **bufpart, char **eol)
 {

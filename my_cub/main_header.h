@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_header.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fjewfish <fjewfish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 05:09:41 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/21 12:29:24 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/23 00:31:37 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@
 # define M_ADD 1
 # define M_REMOVE 0
 
+# define SCALE 30
+
 typedef char		t_bool;
 
 //typedef struct		s_list
@@ -73,8 +75,13 @@ typedef struct	s_win
 typedef struct	s_img
 {
 	void			*ptr;
-	unsigned int	*adr;
-	int				fsh;
+	//unsigned int	*adr;
+	//int				fsh;
+	// void        *img;
+    char        *addr;
+    int         bits_per_pixel;
+    int         line_length;
+    int         endian;
 }				t_img;
 
 //typedef struct	s_err
@@ -153,6 +160,13 @@ typedef struct	s_map
 //	double			d;
 //}				t_stk;
 
+typedef struct	s_plr
+{
+	int			x;
+	int			y;
+	int			view;
+}				t_plr;
+
 typedef struct	s_all
 {
 	t_mlx			mlx;
@@ -161,6 +175,7 @@ typedef struct	s_all
 	//t_err			err;
 	t_map			map;
 	t_tex			tex;
+	t_plr			plr;
 	//t_pos			pos;
 	//t_dir			dir;
 	//t_ray			ray;
@@ -180,6 +195,7 @@ void		free_gc(void *ptr);
 static int	pointer_compare(void *ptr1, void *ptr2);
 static void	pointer_free(void *ptr);
 void		memory_manager(void *ptr, t_bool action);
+char	*ft_strdup_gc(const char *s1);
 
 //CHECKER_C
 int		check_file_extension(char *arg, char *ext);
@@ -192,11 +208,19 @@ t_all		*ft_init_all_in_one(void);
 int		ft_exit(t_all *s, int win);
 
 //PARSE_C
-void	make_map(t_list **head, int size, t_all *aio);
+void	make_map(t_list **head, t_all *aio);
 int		ft_parse(t_all *aio, char *cub);
 
 //USEFULL_FUN_C
 int		ft_spaceskip(char *line, int *i);
 int		ft_strerror(int err);
+
+
+
+
+
+
+//DEL
+void	ft_mlx_map(t_all *aio);
 
 #endif

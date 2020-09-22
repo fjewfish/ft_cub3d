@@ -6,7 +6,7 @@
 /*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/21 03:02:50 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/21 05:59:46 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/22 19:00:53 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,14 @@ void			memory_manager(void *ptr, t_bool action)
 		ft_lstadd_front(&collector, ft_lstnew(ptr));
 	else if (action == M_REMOVE)
 		ft_lstdelel(&collector, ptr, pointer_compare, pointer_free);
+}
+
+char	*ft_strdup_gc(const char *s1)
+{
+	char *s_cpy;
+
+	s_cpy = (char *)malloc_gc(sizeof(char) * (ft_strlen(s1) + 1));
+	if (s_cpy == NULL)
+		return (NULL);
+	return (ft_strcpy(s_cpy, (char *)s1));
 }

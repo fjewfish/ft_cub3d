@@ -6,7 +6,7 @@
 /*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 18:27:06 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/21 22:56:01 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/22 21:32:05 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include "printf/includes/all.h"
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
 # endif
