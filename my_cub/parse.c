@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fjewfish <fjewfish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 17:48:18 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/23 01:56:31 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/23 11:48:38 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,24 +157,28 @@ void	ft_find_plr(char **walls, t_all *aio)
 				aio->plr.y = i;
 				aio->plr.x = j;
 				aio->plr.view = 90;
+				aio->plr.ray_radians = 90;
 			}
 			if (walls[i][j] == 'S')//N,S,E or W)
 			{
 				aio->plr.y = i;
 				aio->plr.x = j;
 				aio->plr.view = 270;
+				aio->plr.ray_radians = 270;
 			}
 			if (walls[i][j] == 'W')//N,S,E or W)
 			{
 				aio->plr.y = i;
 				aio->plr.x = j;
 				aio->plr.view = 180;
+				aio->plr.ray_radians = 180;
 			}
 			if (walls[i][j] == 'E')//N,S,E or W)
 			{
 				aio->plr.y = i;
 				aio->plr.x = j;
 				aio->plr.view = 0;
+				aio->plr.ray_radians = 0;
 			}
 			j++;
 		}

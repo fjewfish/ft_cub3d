@@ -2,7 +2,6 @@
 
 int		ft_keyboard(int key, t_all *aio);
 
-
 void            my_mlx_pixel_put(t_img *data, int x, int y, int color, int plr_wall, int view)
 {
     char    *dst;
@@ -113,6 +112,15 @@ void            my_mlx_pixel_put(t_img *data, int x, int y, int color, int plr_w
 			}
 		}
 	}
+	else if (plr_wall == 3)
+	{
+		int ray_x = (x + SCALE)/2;
+		int ray_y = (y + SCALE)/2;
+		if (view == 90)
+		{
+			while
+		}
+	}
 }
 
 void	ft_draw(t_all *aio)
@@ -137,6 +145,7 @@ void	ft_draw(t_all *aio)
 		i++;
 	}
 	my_mlx_pixel_put(&aio->img, aio->plr.x, aio->plr.y, GREEN, 2, aio->plr.view);
+	my_mlx_pixel_put(&aio->img, aio->plr.x, aio->plr.y, GREEN, 3, aio->plr.view);
 	mlx_put_image_to_window(aio->mlx.ptr, aio->win.ptr, aio->img.ptr, 0, 0);
 }
 
@@ -165,7 +174,7 @@ int		ft_keyboard(int key, t_all *aio)
 		free(aio->mlx.ptr);
 		exit(0);
 	}
-	else if (key == W)
+	else if (key == W && aio->map.walls[aio->plr.y - 1][aio->plr.x] != '1')
 		{
 			if(aio->map.walls[aio->plr.y - 1][aio->plr.x] != '1')
 				aio->plr.y -= 1;
@@ -187,12 +196,15 @@ int		ft_keyboard(int key, t_all *aio)
 		}
 	else if (key == LEFT)
 		{
-
+			aio->plr.view += 90;
+			if (aio->plr.view == 360)
+				aio->plr.view = 0;
 		}
 	else if (key == RIGHT)
 		{
-			if(aio->map.walls[aio->plr.y][aio->plr.x + 1] != '1')
-				aio->plr.x += 1;
+			aio->plr.view -= 90;
+			if (aio->plr.view == -90)
+				aio->plr.view = 270;
 		}
 		ft_draw(aio);
 	return (1);

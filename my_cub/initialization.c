@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fjewfish <fjewfish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/21 03:30:51 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/23 00:47:08 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/23 11:47:17 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ t_all		*ft_init_all_in_one(void)
 	aio->tex.sprite = NULL;
 	aio->img.ptr = NULL;
 	aio->img.addr = NULL;
+	aio->plr.ray_lenght = 0;
+	aio->plr.ray_radians = 0;
 	return (aio);
 }

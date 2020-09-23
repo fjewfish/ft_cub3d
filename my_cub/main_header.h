@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_header.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fjewfish <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fjewfish <fjewfish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 05:09:41 by fjewfish          #+#    #+#             */
-/*   Updated: 2020/09/23 00:31:37 by fjewfish         ###   ########.fr       */
+/*   Updated: 2020/09/23 11:46:26 by fjewfish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ typedef struct	s_map
 //	double			w;
 //}				t_ray;
 
+
 //typedef struct	s_hit
 //{
 //	double			x;
@@ -165,6 +166,8 @@ typedef struct	s_plr
 	int			x;
 	int			y;
 	int			view;
+	double		ray_radians;
+	double		ray_lenght;
 }				t_plr;
 
 typedef struct	s_all
