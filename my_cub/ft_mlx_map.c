@@ -74,7 +74,8 @@ void            my_mlx_pixel_put(t_img *data, int x, int y, int color, int plr_w
 		{
 			int left = SCALE/2;
 			int rigt = SCALE/2;
-			while (x < save_x+SCALE/2)
+			x+=SCALE;
+			while (x > save_x+SCALE/2)
 			{
 				y = save_y;
 				while (y < save_y+SCALE-left)
@@ -87,27 +88,28 @@ void            my_mlx_pixel_put(t_img *data, int x, int y, int color, int plr_w
 					y++;
 				}
 				rigt--;
-				x++;
+				x--;
 			}
 		}
 		if (view == 270)
 		{
 			int left = SCALE/2;
 			int rigt = SCALE/2;
-			while (x < save_x+SCALE/2)
+			y+=SCALE;
+			while (y > save_y+SCALE/2)
 			{
-				y = save_y;
-				while (y < save_y+SCALE-left)
-						y++;
+				x = save_x;
+				while (x < save_x+SCALE-left)
+						x++;
 				left++;
-				while (y< save_y+SCALE-rigt)
+				while (x< save_x+SCALE-rigt)
 				{
 					dst = (data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8)));
 					*(unsigned int*)dst = color;
-					y++;
+					x++;
 				}
 				rigt--;
-				x++;
+				y--;
 			}
 		}
 	}
@@ -179,6 +181,15 @@ int		ft_keyboard(int key, t_all *aio)
 				aio->plr.y += 1;
 		}
 	else if (key == D)
+		{
+			if(aio->map.walls[aio->plr.y][aio->plr.x + 1] != '1')
+				aio->plr.x += 1;
+		}
+	else if (key == LEFT)
+		{
+
+		}
+	else if (key == RIGHT)
 		{
 			if(aio->map.walls[aio->plr.y][aio->plr.x + 1] != '1')
 				aio->plr.x += 1;
