@@ -116,9 +116,6 @@ typedef struct	s_map
 	//int			x;
 	//int			y;
 	int			sprite_count;
-	int			err_map;
-	int			err_parse;
-	int			err_player;
 	t_list		*list;
 }				t_map;
 
@@ -168,6 +165,14 @@ typedef struct	s_key
 	int				x;
 }				t_key;
 
+typedef struct	s_parse_error
+{
+	int			map_trigger;
+	int			map_empty_line;
+	int			settings;
+	int			player;
+}				t_parse_error;
+
 typedef struct	s_all
 {
 	t_mapmod		mapmod;
@@ -183,6 +188,7 @@ typedef struct	s_all
 	t_hit			hit;
 	t_key			key;
 	int				map_mode;
+	t_parse_error	parse_error;
 }				t_all;
 
 //	MALLOC_GC
@@ -206,15 +212,16 @@ void		ft_initialization(t_all *aio);
 //	PARSE
 int		ft_parse(t_all *aio, char *cub);
 //	ERROR
-int		ft_strerror(int err);
+int		ft_error_number(int err);
 int		ft_close(t_all *aio, int win);
 //	USEFUL_FUN
-int		ft_spaceskip(char *line, int *i);
+int		ft_skip_spases(char *line, int *i);
 //	BMP_SAVE
 int		ft_bmp_save(t_all *aio);
 
 
-
+int		ft_line(t_all *aio, char *line);
+void	ft_pos(t_all *aio);
 
 
 

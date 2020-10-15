@@ -47,4 +47,9 @@ void		ft_initialization(t_all *aio)
 	aio->key.w = 0;
 	aio->key.x = 0;
 	aio->map_mode = 0;
+
+
+
+	////////////
+	aio->parse_error.map_trigger == 0;
 }

@@ -21,7 +21,7 @@ int		ft_close(t_all *aio, int win)
 	return (1);
 }
 
-int		ft_strerror(int err)
+int		ft_error_number(int err)
 {
 	(err == -1) ? write(2, "Error : Couldn't open file (FD)\n", 32) : 0;
 	(err == -2) ? write(2, "Error : Couldn't parse file (GNL)\n", 34) : 0;
